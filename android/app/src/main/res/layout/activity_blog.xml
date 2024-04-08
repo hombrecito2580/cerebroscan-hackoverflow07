@@ -17,7 +17,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:background="@color/white">
+                android:background="@color/bg">
 
                 <TextView
                     android:id="@+id/tvTitle"
@@ -27,7 +27,7 @@
                     android:textStyle="bold"
                     android:layout_margin="16dp"
                     android:textSize="24sp"
-                    android:textColor="@color/black"
+                    android:textColor="@color/text"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.043"
@@ -44,7 +44,7 @@
                     android:text="Title"
                     android:layout_margin="16dp"
                     android:textSize="16sp"
-                    android:textColor="#D02F2E2E"
+                    android:textColor="@color/text"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.043"
@@ -71,7 +71,7 @@
                     android:text="Title"
                     android:layout_margin="16dp"
                     android:textSize="16sp"
-                    android:textColor="#D02F2E2E"
+                    android:textColor="@color/text"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.043"
