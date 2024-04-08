@@ -8,4 +8,5 @@
     <color name="colorAccent">@color/black</color>
 
     <color name="text">@color/black</color>
+    <color name="bg">@color/white</color>
 </resources>

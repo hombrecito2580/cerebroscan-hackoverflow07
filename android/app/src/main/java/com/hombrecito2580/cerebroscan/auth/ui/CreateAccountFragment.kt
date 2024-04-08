@@ -13,7 +13,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.hombrecito2580.cerebroscan.MainActivity
+import com.hombrecito2580.cerebroscan.home.ui.MainActivity
 import com.hombrecito2580.cerebroscan.R
 import com.hombrecito2580.cerebroscan.auth.retrofit.AuthApiClient
 import com.hombrecito2580.cerebroscan.auth.retrofit.AuthService

@@ -13,10 +13,13 @@
         android:theme="@style/Theme.Cerebroscan"
         tools:targetApi="31">
         <activity
+            android:name=".home.ui.BlogActivity"
+            android:exported="false" />
+        <activity
             android:name=".auth.ui.AuthActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".home.ui.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
