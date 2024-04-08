@@ -35,13 +35,13 @@ class HomeFragment : Fragment() {
         adapter = BlogAdapter(blogs, requireContext())
         binding.blogRV.adapter = adapter
 
-        loadBlogData()
-
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        loadBlogData()
 
 //        var error: String? = null
 //        CoroutineScope(Dispatchers.IO).launch {

@@ -2,6 +2,8 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.Cerebroscan" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="android:statusBarColor">@color/colorPrimary</item>
+        <item name="colorAccent">@color/text</item>
+        <item name="android:navigationBarColor">@color/bottomNav</item>
     </style>
 
     <style name="Theme.Cerebroscan" parent="Base.Theme.Cerebroscan" />
@@ -16,6 +18,11 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="t1">
+        <item name="fontFamily">@font/futura_medium</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
     <style name="t2">
         <item name="fontFamily">@font/futura_medium</item>
         <item name="android:textSize">20sp</item>
@@ -23,6 +30,11 @@
 
     <style name="t3">
         <item name="fontFamily">@font/futura_medium</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="t3Light">
+        <item name="fontFamily">@font/futura</item>
         <item name="android:textSize">18sp</item>
     </style>
 

@@ -2,8 +2,6 @@ package com.hombrecito2580.cerebroscan.home.retrofit
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import java.io.FileInputStream
-import java.util.Properties
 
 object RetrofitInstance {
 //    private val envProperties = Properties().apply {

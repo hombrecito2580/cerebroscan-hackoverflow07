@@ -8,12 +8,12 @@
 
     <item
         android:id="@+id/testFragment"
-        android:icon="@drawable/ic_test"
+        android:icon="@drawable/ic_sample"
         android:title="Test"/>
 
     <item
         android:id="@+id/profileFragment"
-        android:icon="@drawable/ic_user"
+        android:icon="@drawable/ic_profile"
         android:title="Profile" />
 
 
