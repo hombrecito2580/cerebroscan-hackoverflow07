@@ -14,14 +14,14 @@ object RetrofitInstance {
 //    private val BASE_URL = envProperties.getProperty("BASE_URL")
 
     private val client = OkHttpClient.Builder()
-        .connectTimeout(15, TimeUnit.SECONDS)
-        .readTimeout(15, TimeUnit.SECONDS)
-        .writeTimeout(15, TimeUnit.SECONDS)
+        .connectTimeout(25, TimeUnit.SECONDS)
+        .readTimeout(25, TimeUnit.SECONDS)
+        .writeTimeout(25, TimeUnit.SECONDS)
         .build()
 
     val retrofit: Retrofit by lazy {
         Retrofit.Builder()
-            .baseUrl("http://192.168.77.36:8000/")
+            .baseUrl("https://dermi-check-server-i2ys.onrender.com/")
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()

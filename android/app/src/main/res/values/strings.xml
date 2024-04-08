@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">cerebroscan</string>
+    <string name="app_name">CerebroScan</string>
     <string name="app_name_underline"><u>DermiCheck</u></string>
     <string name="please_wait">Please wait…</string>
     <!-- TODO: Remove or change this placeholder text -->

@@ -3,6 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:scrollbars="none"
+    android:layout_marginBottom="24dp"
     android:layout_height="match_parent"
     android:background="@color/bg"
     tools:context=".home.ui.TestFragment">
@@ -40,9 +42,9 @@
             android:id="@+id/tvClick"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Select Image"
+            android:text="Upload MRI Image"
             android:textColor="@color/text"
-            android:textSize="40sp"
+            style="@style/t0"
             android:textStyle="bold"
             android:layout_marginTop="32dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -57,9 +59,9 @@
             android:layout_marginTop="12dp"
             android:layout_marginStart="48dp"
             android:layout_marginEnd="48dp"
-            android:text="UPLOAD"
+            android:text="TEST"
             android:textColor="@color/bg"
-            android:textSize="16sp"
+            style="@style/t3"
             app:cornerRadius="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -70,8 +72,8 @@
             android:id="@+id/tvResult"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:textSize="40sp"
+            android:textColor="@color/text"
+            style="@style/t0"
             android:textStyle="bold"
             android:layout_marginTop="32dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -85,7 +87,6 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             app:cardCornerRadius="20dp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvResult">
@@ -101,10 +102,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
-                    android:textSize="24dp"
+                    style="@style/t3"
                     android:textColor="@color/colorPrimaryDark"
                     android:textStyle="bold"
-                    android:gravity="center_horizontal"
                     android:text="Symptoms"/>
 
                 <TextView
@@ -113,8 +113,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
                     android:textSize="16dp"
-                    android:textColor="@color/black"
-                    android:gravity="center_horizontal"
+                    android:textColor="@color/text"
                     android:text="Symptoms"/>
 
                 <TextView
@@ -123,8 +122,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
                     android:textSize="16dp"
-                    android:textColor="@color/black"
-                    android:gravity="center_horizontal"
+                    android:textColor="@color/text"
                     android:text="Symptoms"/>
 
                 <TextView
@@ -133,8 +131,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
                     android:textSize="16dp"
-                    android:textColor="@color/black"
-                    android:gravity="center_horizontal"
+                    android:textColor="@color/text"
                     android:text="Symptoms"/>
 
                 <TextView
@@ -143,8 +140,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
                     android:textSize="16dp"
-                    android:textColor="@color/black"
-                    android:gravity="center_horizontal"
+                    android:textColor="@color/text"
                     android:text="Symptoms"/>
 
                 <TextView
@@ -153,8 +149,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
                     android:textSize="16dp"
-                    android:textColor="@color/black"
-                    android:gravity="center_horizontal"
+                    android:textColor="@color/text"
                     android:text="Symptoms"/>
 
             </LinearLayout>
@@ -168,11 +163,9 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             app:cardCornerRadius="20dp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cvSymptoms"
-            app:layout_constraintVertical_bias="0.85">
+            app:layout_constraintTop_toBottomOf="@+id/cvSymptoms">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -185,10 +178,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
-                    android:textSize="24dp"
+                    style="@style/t3"
                     android:textColor="@color/colorPrimaryDark"
                     android:textStyle="bold"
-                    android:gravity="center_horizontal"
                     android:text="Preventions"/>
 
                 <TextView
@@ -197,8 +189,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
                     android:textSize="16dp"
-                    android:textColor="@color/black"
-                    android:gravity="center_horizontal"
+                    android:textColor="@color/text"
                     android:text="Preventions"/>
 
                 <TextView
@@ -207,8 +198,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
                     android:textSize="16dp"
-                    android:textColor="@color/black"
-                    android:gravity="center_horizontal"
+                    android:textColor="@color/text"
                     android:text="Preventions"/>
 
                 <TextView
@@ -217,8 +207,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
                     android:textSize="16dp"
-                    android:textColor="@color/black"
-                    android:gravity="center_horizontal"
+                    android:textColor="@color/text"
                     android:text="Preventions"/>
 
                 <TextView
@@ -227,8 +216,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
                     android:textSize="16dp"
-                    android:textColor="@color/black"
-                    android:gravity="center_horizontal"
+                    android:textColor="@color/text"
                     android:text="Preventions"/>
 
                 <TextView
@@ -237,8 +225,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
                     android:textSize="16dp"
-                    android:textColor="@color/black"
-                    android:gravity="center_horizontal"
+                    android:textColor="@color/text"
                     android:text="Preventions"/>
 
             </LinearLayout>

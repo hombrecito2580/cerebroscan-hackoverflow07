@@ -19,9 +19,13 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import com.hombrecito2580.cerebroscan.R
 import com.hombrecito2580.cerebroscan.auth.retrofit.AuthApiClient
 import com.hombrecito2580.cerebroscan.databinding.FragmentTestBinding
+import com.hombrecito2580.cerebroscan.home.data.BlogData
+import com.hombrecito2580.cerebroscan.home.data.DiseaseDetailsManager
 import com.hombrecito2580.cerebroscan.home.retrofit.ApiInterface
 import com.hombrecito2580.cerebroscan.home.retrofit.RetrofitInstance
 import kotlinx.coroutines.CoroutineScope
@@ -31,9 +35,12 @@ import kotlinx.coroutines.withContext
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.toRequestBody
+import org.json.JSONObject
 import retrofit2.Retrofit
+import java.io.BufferedReader
 import java.io.ByteArrayOutputStream
 import java.io.InputStream
+import java.io.InputStreamReader
 
 class TestFragment : Fragment() {
     private var _binding: FragmentTestBinding? = null
@@ -94,16 +101,23 @@ class TestFragment : Fragment() {
         }
 
         binding.btnUpload.setOnClickListener {
-            if(validateImage()) {
+            if (validateImage()) {
                 testImageFromBitmap()
             }
         }
     }
 
     private fun testImageFromBitmap() {
+        dialog.show()
+
+        binding.cvSymptoms.visibility = View.GONE
+        binding.cvPreventions.visibility = View.GONE
+        binding.tvResult.text = ""
+
         val byteArrayOutputStream = ByteArrayOutputStream()
         latestSelectedImageBitmap?.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream)
-        val requestBody = byteArrayOutputStream.toByteArray().toRequestBody("image/png".toMediaTypeOrNull())
+        val requestBody =
+            byteArrayOutputStream.toByteArray().toRequestBody("image/png".toMediaTypeOrNull())
 
         // Create MultipartBody.Part
         val imagePart = MultipartBody.Part.createFormData("image", "my_image.png", requestBody)
@@ -112,11 +126,6 @@ class TestFragment : Fragment() {
             try {
                 // Perform network operation in IO thread
                 val response = apiService.getDisease(imagePart)
-
-                withContext(Dispatchers.Main) {
-                    // Switch back to the main thread for UI updates
-                    dialog.show()
-                }
 
                 if (response.isSuccessful) {
                     Log.d("TGA", "OK")
@@ -128,21 +137,51 @@ class TestFragment : Fragment() {
 //                         val direction = TestFragmentDirections.actionTestFragmentToDiseaseFragment(
 //                             disease!!.disease)
 //                         findNavController().navigate(direction)
-                        binding.cvSymptoms.visibility= View.VISIBLE
-                        binding.cvPreventions.visibility= View.VISIBLE
 
+
+                        var diseaseName = response.body()?.diseaseInfo?.disease
                         binding.tvResult.text = response.body()?.diseaseInfo?.disease
-//                        binding.tvSymptom1.text= disease!!.symptoms[0].second
-//                        binding.tvSymptom2.text= disease.symptoms[1].second
-//                        binding.tvSymptom3.text= disease.symptoms[2].second
-//                        binding.tvSymptom4.text= disease.symptoms[3].second
-//                        binding.tvSymptom5.text= disease.symptoms[4].second
-//
-//                        binding.tvPrevention1.text= disease.prevention[0].second
-//                        binding.tvPrevention2.text= disease.prevention[1].second
-//                        binding.tvPrevention3.text= disease.prevention[2].second
-//                        binding.tvPrevention4.text= disease.prevention[3].second
-//                        binding.tvPrevention5.text= disease.prevention[4].second
+
+                        if(diseaseName == null) {
+                            Toast.makeText(context, "Unexpected Error Occured", Toast.LENGTH_SHORT).show()
+                        }
+                        else if (diseaseName != "No Tumor") {
+                            diseaseName = diseaseName.trim()
+                            binding.cvSymptoms.visibility = View.VISIBLE
+                            binding.cvPreventions.visibility = View.VISIBLE
+
+                            val diseaseDetailsManager = DiseaseDetailsManager(requireContext())
+
+                            val symptoms = diseaseDetailsManager.getSymptoms(diseaseName)
+                            Log.d("DISESASES!!!!", symptoms.toString())
+                            symptoms?.let { symptomList ->
+                                for (i in 0 until minOf(symptomList.size, 5)) {
+                                    when (i) {
+                                        0 -> binding.tvSymptom1.text = symptomList[i]
+                                        1 -> binding.tvSymptom2.text = symptomList[i]
+                                        2 -> binding.tvSymptom3.text = symptomList[i]
+                                        3 -> binding.tvSymptom4.text = symptomList[i]
+                                        4 -> binding.tvSymptom5.text = symptomList[i]
+                                        // If you have more than 5 symptoms, you can handle them accordingly
+                                    }
+                                }
+                            }
+
+                            val cures = diseaseDetailsManager.getCures(diseaseName)
+                            Log.d("DISESASES!!!!", cures.toString())
+                            cures?.let { cureList ->
+                                for (i in 0 until minOf(cureList.size, 5)) {
+                                    when (i) {
+                                        0 -> binding.tvPrevention1.text = cureList[i]
+                                        1 -> binding.tvPrevention2.text = cureList[i]
+                                        2 -> binding.tvPrevention3.text = cureList[i]
+                                        3 -> binding.tvPrevention4.text = cureList[i]
+                                        4 -> binding.tvPrevention5.text = cureList[i]
+                                        // If you have more than 5 cures, you can handle them accordingly
+                                    }
+                                }
+                            }
+                        }
                     }
                 } else {
                     withContext(Dispatchers.Main) {
@@ -154,7 +193,7 @@ class TestFragment : Fragment() {
                 // Handle exceptions
                 withContext(Dispatchers.Main) {
                     // Show error message on the UI thread
-                    Toast.makeText(context, "An error occurred: ${e.message}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "Something went wrong...", Toast.LENGTH_SHORT).show()
                     // Log the error
                     Log.d("TAGGGGGGGGG", e.message.toString())
                 }
@@ -168,6 +207,7 @@ class TestFragment : Fragment() {
 
 
     }
+
     private fun updateImageView(imageBitmap: Bitmap?) {
         if (imageBitmap != null) {
             Glide.with(this)
@@ -189,11 +229,11 @@ class TestFragment : Fragment() {
     private fun validateImage(): Boolean {
         var error: String? = null
 
-        if(latestSelectedImageUri == null && latestSelectedImageBitmap == null) {
+        if (latestSelectedImageUri == null && latestSelectedImageBitmap == null) {
             error = "Please select an image."
         }
 
-        if(error != null) {
+        if (error != null) {
             binding.tvIvError.visibility = View.VISIBLE
             binding.tvIvError.text = error
         } else {
