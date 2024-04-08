@@ -1,60 +1,137 @@
 package com.hombrecito2580.cerebroscan.auth.ui
 
+import android.app.Dialog
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import com.hombrecito2580.cerebroscan.R
+import com.hombrecito2580.cerebroscan.auth.retrofit.AuthApiClient
+import com.hombrecito2580.cerebroscan.auth.retrofit.AuthService
+import com.hombrecito2580.cerebroscan.auth.retrofit.CheckAccountRequest
+import com.hombrecito2580.cerebroscan.databinding.FragmentLoginWithEmailBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import retrofit2.Retrofit
+import java.util.regex.Pattern
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [LoginWithEmailFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class LoginWithEmailFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private var _binding: FragmentLoginWithEmailBinding? = null
+    private val binding get() = _binding!!
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var dialog: Dialog
+
+    private lateinit var authService: AuthService
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_login_with_email, container, false)
+    ): View {
+        _binding = FragmentLoginWithEmailBinding.inflate(inflater, container, false)
+
+        dialog = Dialog(requireActivity())
+        dialog.setContentView(R.layout.progress_bar)
+        dialog.setCancelable(false)
+        if (dialog.window != null) {
+            dialog.window!!.setBackgroundDrawable(ColorDrawable(0))
+        }
+
+        val retrofit: Retrofit = AuthApiClient.retrofit
+        authService = retrofit.create(AuthService::class.java)
+
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment LoginWithEmailFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            LoginWithEmailFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.loginContinueButton.setOnClickListener {
+            val email = binding.loginEMailEditText.text.toString().trim()
+            if (isValid(email)) {
+                redirect(email)
             }
+        }
+
     }
+
+    private fun isValid(email: String): Boolean {
+        if (email.isEmpty()) {
+            binding.loginEMailEditTextLayout.helperText = "Please enter the Email"
+            return false
+        }
+
+        val pattern = Pattern.compile("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}\$")
+        val matcher = pattern.matcher(email)
+
+        return if (matcher.matches()) {
+            binding.loginEMailEditTextLayout.helperText = null
+            true
+        } else {
+            binding.loginEMailEditTextLayout.helperText = "Invalid Email"
+            false
+        }
+    }
+
+    private fun redirect(email: String) {
+        dialog.show()
+
+        CoroutineScope(Dispatchers.Main).launch {
+            try {
+                val accountExists = checkAccountExists(email)
+
+                when (accountExists) {
+                    1 -> {
+                        val direction = LoginWithEmailFragmentDirections.actionLoginWithEmailFragmentToLoginPasswordFragment(email)
+                        findNavController().navigate(direction)
+                    }
+                    0 -> {
+                        val direction = LoginWithEmailFragmentDirections.actionLoginWithEmailFragmentToCreateAccountFragment(email)
+                        findNavController().navigate(direction)
+                    }
+                    else -> {
+                        // Unexpected response, show a generic error message
+                        Toast.makeText(context, "Unexpected response from server", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            } catch (e: Exception) {
+                // Handle exceptions
+                Toast.makeText(context, "An error occurred: ${e.message}", Toast.LENGTH_SHORT).show()
+            } finally {
+                dialog.dismiss() // Dismiss dialog in any case
+            }
+        }
+    }
+
+    private suspend fun checkAccountExists(email: String): Int {
+        return withContext(Dispatchers.IO) {
+            try {
+                val request = CheckAccountRequest(email)
+                val response = authService.checkAccount(request)
+
+                if (response.isSuccessful) {
+                    val checkAccountResponse = response.body()
+                    if (checkAccountResponse != null) {
+                        if (checkAccountResponse.isAvail) 0
+                        else 1
+                    } else {
+                        // Invalid response from server
+                        -1
+                    }
+                } else {
+                    // Handle non-successful response
+                    -1
+                }
+            } catch (e: Exception) {
+                // Handle exceptions
+                -1
+            }
+        }
+    }
+
 }

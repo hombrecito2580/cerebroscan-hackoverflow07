@@ -1,60 +1,170 @@
 package com.hombrecito2580.cerebroscan.auth.ui
 
+import android.annotation.SuppressLint
+import android.app.Dialog
+import android.content.Context
+import android.content.Intent
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
+import com.hombrecito2580.cerebroscan.MainActivity
 import com.hombrecito2580.cerebroscan.R
+import com.hombrecito2580.cerebroscan.auth.retrofit.AuthApiClient
+import com.hombrecito2580.cerebroscan.auth.retrofit.AuthService
+import com.hombrecito2580.cerebroscan.auth.retrofit.SignUpRequest
+import com.hombrecito2580.cerebroscan.auth.retrofit.SignUpResponse
+import com.hombrecito2580.cerebroscan.databinding.FragmentCreateAccountBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import retrofit2.Response
+import retrofit2.Retrofit
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [CreateAccountFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class CreateAccountFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private val args: CreateAccountFragmentArgs by navArgs()
+    private var email = ""
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private var _binding: FragmentCreateAccountBinding? = null
+    private val binding get() = _binding!!
+
+    private lateinit var dialog: Dialog
+
+    private lateinit var authService: AuthService
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_create_account, container, false)
+    ): View {
+        _binding = FragmentCreateAccountBinding.inflate(inflater, container, false)
+
+        dialog = Dialog(requireActivity())
+        dialog.setContentView(R.layout.progress_bar)
+        dialog.setCancelable(false)
+        if (dialog.window != null) {
+            dialog.window!!.setBackgroundDrawable(ColorDrawable(0))
+        }
+
+        val retrofit: Retrofit = AuthApiClient.retrofit
+        authService = retrofit.create(AuthService::class.java)
+
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment CreateAccountFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            CreateAccountFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+    @SuppressLint("SetTextI18n")
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        email = args.email
+
+        binding.tvCreatePassword.text = "Enter password for\n$email"
+
+        binding.btnContinue.setOnClickListener {
+            val password = binding.etPassword.text.toString().trim()
+            val confirmPassword = binding.etConfirmPassword.text.toString().trim()
+            val name = binding.etName.text.toString().trim()
+
+            if(validateInputs(password, confirmPassword, name) && validatePassword(password, confirmPassword)) {
+                createAccountAndRedirect(email, password, name)
             }
+        }
+
+        binding.floatingActionButton.setOnClickListener {
+            findNavController().popBackStack()
+        }
+    }
+
+    private fun createAccountAndRedirect(email: String, password: String, name: String) {
+        dialog.show()
+
+        CoroutineScope(Dispatchers.Main).launch {
+            try {
+                val response = signUpUser(email, password)
+                if (response?.isSuccessful == true) {
+                    val signUpResponse = response.body()
+                    signUpResponse?.let {
+                        // Handle successful sign up
+                        Toast.makeText(context, "Sign up successful", Toast.LENGTH_SHORT).show()
+                        // Save token to shared preferences
+                        saveTokenToSharedPreferences(signUpResponse.token)
+                        // Redirect to appropriate screen
+                        startActivity(Intent(requireContext(), MainActivity::class.java))
+                        activity?.finish()
+                        return@launch
+                    }
+                } else {
+                    // Handle non-successful response
+                    Toast.makeText(context, "Sign up failed: ${response?.message()}", Toast.LENGTH_SHORT).show()
+                }
+            } catch (e: Exception) {
+                // Handle exceptions
+                Toast.makeText(context, "An error occurred: ${e.message}", Toast.LENGTH_SHORT).show()
+            } finally {
+                dialog.dismiss() // Dismiss dialog in any case
+            }
+        }
+    }
+
+    private fun saveTokenToSharedPreferences(token: String) {
+        val sharedPreferences = requireContext().getSharedPreferences("your_preferences_name", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putString("token", token)
+        editor.apply()
+    }
+
+    private suspend fun signUpUser(email: String, password: String): Response<SignUpResponse>? {
+        return withContext(Dispatchers.IO) {
+            try {
+                val request = SignUpRequest(email, password)
+                authService.signUp(request)
+            } catch (e: Exception) {
+                // Handle exceptions
+                withContext(Dispatchers.Main) {
+                    Toast.makeText(context, "An error occurred during sign-up: ${e.message}", Toast.LENGTH_SHORT).show()
+                }
+                null
+            }
+        }
+    }
+
+    private fun validateInputs(password: String, confirmPassword: String, name: String): Boolean {
+        binding.etLtPassword.helperText = null
+        binding.etLtConfirmPassword.helperText = null
+        binding.etLtName.helperText = null
+
+        if(name.isEmpty()) {
+            binding.etLtName.helperText = "Please enter your name"
+            return false
+        }
+        if(password.isEmpty()) {
+            binding.etLtPassword.helperText = "Please enter a password"
+            return false
+        }
+        if(confirmPassword.isEmpty()) {
+            binding.etLtConfirmPassword.helperText = "Please confirm the password"
+            return false
+        }
+        return true
+    }
+
+    private fun validatePassword(password: String, confirmPassword: String): Boolean {
+        if(password.length < 6) {
+            binding.etLtPassword.helperText = "Password must contain at least 6 characters"
+            binding.etLtConfirmPassword.helperText = null
+            return false
+        }
+        if(password != confirmPassword) {
+            binding.etLtPassword.helperText = ""
+            binding.etLtConfirmPassword.helperText = "Passwords do not match"
+            return false
+        }
+        binding.etLtPassword.helperText = ""
+        binding.etLtConfirmPassword.helperText = ""
+        return true
     }
 }
