@@ -23,5 +23,9 @@ class BlogActivity : AppCompatActivity() {
 
         val uri=intent.getStringExtra("img")
         Glide.with(this).load(uri).into(binding.img)
+
+        binding.btnBack.setOnClickListener {
+            finish()
+        }
     }
 }

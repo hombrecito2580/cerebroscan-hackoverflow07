@@ -21,13 +21,24 @@
             android:layout_marginVertical="16dp"
             android:layout_marginStart="16dp">
 
+            <ImageView
+                android:id="@+id/btnBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:contentDescription="Back"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:src="@drawable/ic_arrow_back" />
+
             <TextView
                 style="@style/t2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Featured Articles"
                 android:textColor="@color/white"
-                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="12dp"
+                app:layout_constraintStart_toEndOf="@id/btnBack"
                 app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
