@@ -119,6 +119,7 @@ class TestFragment : Fragment() {
                 }
 
                 if (response.isSuccessful) {
+                    Log.d("TGA", "OK")
                     val disease = response.body()
                     withContext(Dispatchers.Main) {
                         // Show success message on the UI thread
@@ -129,17 +130,19 @@ class TestFragment : Fragment() {
 //                         findNavController().navigate(direction)
                         binding.cvSymptoms.visibility= View.VISIBLE
                         binding.cvPreventions.visibility= View.VISIBLE
-                        binding.tvSymptom1.text= disease!!.symptoms[0].second
-                        binding.tvSymptom2.text= disease!!.symptoms[1].second
-                        binding.tvSymptom3.text= disease!!.symptoms[2].second
-                        binding.tvSymptom4.text= disease!!.symptoms[3].second
-                        binding.tvSymptom5.text= disease!!.symptoms[4].second
 
-                        binding.tvPrevention1.text= disease!!.prevention[0].second
-                        binding.tvPrevention2.text= disease!!.prevention[1].second
-                        binding.tvPrevention3.text= disease!!.prevention[2].second
-                        binding.tvPrevention4.text= disease!!.prevention[3].second
-                        binding.tvPrevention5.text= disease!!.prevention[4].second
+                        binding.tvResult.text = response.body()?.diseaseInfo?.disease
+//                        binding.tvSymptom1.text= disease!!.symptoms[0].second
+//                        binding.tvSymptom2.text= disease.symptoms[1].second
+//                        binding.tvSymptom3.text= disease.symptoms[2].second
+//                        binding.tvSymptom4.text= disease.symptoms[3].second
+//                        binding.tvSymptom5.text= disease.symptoms[4].second
+//
+//                        binding.tvPrevention1.text= disease.prevention[0].second
+//                        binding.tvPrevention2.text= disease.prevention[1].second
+//                        binding.tvPrevention3.text= disease.prevention[2].second
+//                        binding.tvPrevention4.text= disease.prevention[3].second
+//                        binding.tvPrevention5.text= disease.prevention[4].second
                     }
                 } else {
                     withContext(Dispatchers.Main) {
