@@ -111,7 +111,7 @@ class CreateAccountFragment : Fragment() {
     }
 
     private fun saveTokenToSharedPreferences(token: String) {
-        val sharedPreferences = requireContext().getSharedPreferences("your_preferences_name", Context.MODE_PRIVATE)
+        val sharedPreferences = requireContext().getSharedPreferences("my_preferences", Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
         editor.putString("token", token)
         editor.apply()

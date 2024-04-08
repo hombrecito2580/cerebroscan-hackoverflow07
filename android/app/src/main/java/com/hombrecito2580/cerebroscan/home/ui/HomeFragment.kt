@@ -1,5 +1,8 @@
 package com.hombrecito2580.cerebroscan.home.ui
 
+import android.content.Context
+import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import com.hombrecito2580.cerebroscan.auth.ui.AuthActivity
 import com.hombrecito2580.cerebroscan.databinding.FragmentHomeBinding
 import com.hombrecito2580.cerebroscan.home.adapter.BlogAdapter
 import com.hombrecito2580.cerebroscan.home.data.BlogData
@@ -42,6 +46,26 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         loadBlogData()
+
+        val sharedPreferences: SharedPreferences = requireContext().getSharedPreferences("my_preferences", Context.MODE_PRIVATE)
+        val token = sharedPreferences.getString("token", "") ?: ""
+
+        if(token.isNotEmpty()) {
+            binding.btnLogin.visibility = View.GONE
+            binding.btnLogout.visibility = View.VISIBLE
+        }
+
+        binding.btnLogin.setOnClickListener {
+            startActivity(Intent(requireContext(), AuthActivity::class.java))
+        }
+
+        binding.btnLogout.setOnClickListener {
+            val editor: SharedPreferences.Editor = sharedPreferences.edit()
+            editor.remove("token")
+            editor.apply()
+            binding.btnLogin.visibility = View.VISIBLE
+            binding.btnLogout.visibility = View.GONE
+        }
 
 //        var error: String? = null
 //        CoroutineScope(Dispatchers.IO).launch {
@@ -99,6 +123,18 @@ class HomeFragment : Fragment() {
                 // Handle exception
                 e.printStackTrace()
             }
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        val sharedPreferences: SharedPreferences = requireContext().getSharedPreferences("my_preferences", Context.MODE_PRIVATE)
+        val token = sharedPreferences.getString("token", "") ?: ""
+
+        if(token.isNotEmpty()) {
+            binding.btnLogin.visibility = View.GONE
+            binding.btnLogout.visibility = View.VISIBLE
         }
     }
 }

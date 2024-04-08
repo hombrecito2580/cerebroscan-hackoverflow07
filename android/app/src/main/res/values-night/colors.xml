@@ -10,6 +10,7 @@
     <color name="text">@color/white</color>
     <color name="bg">#161617</color>
     <color name="bgLight">#292934</color>
+    <color name="alter">@color/black</color>
 
     <color name="bottomNav">#083356</color>
 </resources>

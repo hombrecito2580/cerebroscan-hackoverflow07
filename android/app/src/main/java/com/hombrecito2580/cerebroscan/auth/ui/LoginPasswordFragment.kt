@@ -6,6 +6,7 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -102,14 +103,17 @@ class LoginPasswordFragment : Fragment() {
                 val response = authService.login(request)
                 if (response.isSuccessful) {
                     val loginResponse = response.body()
-                    loginResponse?.let {
-                        // Handle successful login
-                        saveCredentialsToSharedPreferences(email, password)
+                    Log.d("response...", loginResponse.toString())
+                    if(loginResponse?.token != null) {
+                        saveTokenToSharedPreferences(loginResponse.token)
                         startActivity(Intent(requireContext(), MainActivity::class.java))
                         dialog.dismiss()
                         activity?.finish()
-                        return@launch  // Exit the coroutine on successful login
+                        return@launch
+                    } else {
+                        Toast.makeText(context, "ERROR", Toast.LENGTH_SHORT).show()
                     }
+
                 } else {
                     // Handle unsuccessful login response
                     Toast.makeText(
@@ -131,12 +135,10 @@ class LoginPasswordFragment : Fragment() {
         }
     }
 
-    private fun saveCredentialsToSharedPreferences(email: String, password: String) {
-        val sharedPreferences =
-            requireContext().getSharedPreferences("your_preferences_name", Context.MODE_PRIVATE)
+    private fun saveTokenToSharedPreferences(token: String) {
+        val sharedPreferences = requireContext().getSharedPreferences("my_preferences", Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
-        editor.putString("email", email)
-        editor.putString("password", password)
+        editor.putString("token", token)
         editor.apply()
     }
 
