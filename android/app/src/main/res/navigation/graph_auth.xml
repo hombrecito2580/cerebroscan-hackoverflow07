@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/loginWithEmailFragment"
-        android:name="com.hombrecito2580.dermicheck_hackoverflow.auth.ui.LoginWithEmailFragment"
+        android:name="com.hombrecito2580.cerebroscan.auth.ui.LoginWithEmailFragment"
         android:label="fragment_login_with_email"
         tools:layout="@layout/fragment_login_with_email">
         <action
@@ -28,7 +28,7 @@
 
     <fragment
         android:id="@+id/loginPasswordFragment"
-        android:name="com.hombrecito2580.dermicheck_hackoverflow.auth.ui.LoginPasswordFragment"
+        android:name="com.hombrecito2580.cerebroscan.auth.ui.LoginPasswordFragment"
         android:label="fragment_login_password"
         tools:layout="@layout/fragment_login_password">
 
@@ -36,9 +36,6 @@
             android:name="email"
             app:argType="string"
             android:defaultValue="" />
-        <action
-            android:id="@+id/action_loginPasswordFragment_to_forgotPasswordFragment"
-            app:destination="@id/forgotPasswordFragment" />
 
     </fragment>
 
@@ -54,9 +51,4 @@
             android:defaultValue="" />
 
     </fragment>
-    <fragment
-        android:id="@+id/forgotPasswordFragment"
-        android:name="com.hombrecito2580.dermicheck_hackoverflow.auth.ui.ForgotPasswordFragment"
-        android:label="fragment_forgot_password"
-        tools:layout="@layout/fragment_forgot_password" />
 </navigation>
