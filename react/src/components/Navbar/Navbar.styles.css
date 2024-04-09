@@ -1,0 +1,17 @@
+@media (max-width :991px){
+    .sidebar{
+        width: 50% !important;
+        background-color: rgb(255, 255, 255 , 0.15) !important;
+        backdrop-filter: blur(10px) !important;
+    }
+}
+
+.btn-custom{
+    border: 0 !important;
+    border-radius: 20px !important;
+    padding: 12px 30px !important;
+    /* margin-top: 30px !important; */
+    cursor: pointer !important;
+    color: #FFF !important;
+    background-color: #10c3a5 !important;
+}

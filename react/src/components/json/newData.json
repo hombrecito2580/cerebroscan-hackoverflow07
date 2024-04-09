@@ -1,0 +1,335 @@
+{
+    "Pituitary": {
+      "symptoms": [
+        {
+          "id": "1",
+          "first": "Headaches",
+          "second": "Persistent or severe headaches, often behind the eyes."
+        },
+        {
+          "id": "2",
+          "first": "Vision Problems",
+          "second": "Blurred vision, loss of peripheral vision, or double vision."
+        },
+        {
+          "id": "3",
+          "first": "Fatigue",
+          "second": "Feeling tired or lacking energy."
+        },
+        {
+          "id": "4",
+          "first": "Hormonal Changes",
+          "second": "Changes in menstruation, libido, or growth in children."
+        },
+        {
+          "id": "5",
+          "first": "Nausea and Vomiting",
+          "second": "Especially in the morning or with changes in posture."
+        }
+      ],
+      "cures": [
+        {
+          "id": "1",
+          "first": "Medication",
+          "second": "Hormone replacement or medication to shrink the tumor."
+        },
+        {
+          "id": "2",
+          "first": "Surgery",
+          "second": "Surgical removal of the tumor, if necessary."
+        },
+        {
+          "id": "3",
+          "first": "Radiation Therapy",
+          "second": "Targeted radiation to destroy tumor cells."
+        },
+        {
+          "id": "4",
+          "first": "Monitoring",
+          "second": "Regular monitoring and follow-up with a healthcare provider."
+        },
+        {
+          "id": "5",
+          "first": "Hormone Therapy",
+          "second": "Supplemental hormones to manage hormonal imbalances."
+        }
+      ],
+      "prevention": [
+        {
+          "id": "1",
+          "first": "Regular Check-ups",
+          "second": "Regular visits to a healthcare provider for screenings."
+        },
+        {
+          "id": "2",
+          "first": "Healthy Lifestyle",
+          "second": "Maintain a healthy diet and exercise regularly."
+        },
+        {
+          "id": "3",
+          "first": "Manage Stress",
+          "second": "Stress reduction techniques, such as meditation or yoga."
+        },
+        {
+          "id": "4",
+          "first": "Educate Yourself",
+          "second": "Learn about symptoms and warning signs of pituitary disorders."
+        },
+        {
+          "id": "5",
+          "first": "Medication Adherence",
+          "second": "Follow prescribed medication schedules and dosages."
+        }
+      ]
+    },
+    "No Tumor": {
+      "symptoms": [
+        {
+          "id": "1",
+          "first": "Headaches",
+          "second": "Persistent or severe headaches, often behind the eyes."
+        },
+        {
+          "id": "2",
+          "first": "Vision Problems",
+          "second": "Blurred vision, loss of peripheral vision, or double vision."
+        },
+        {
+          "id": "3",
+          "first": "Fatigue",
+          "second": "Feeling tired or lacking energy."
+        },
+        {
+          "id": "4",
+          "first": "Hormonal Changes",
+          "second": "Changes in menstruation, libido, or growth in children."
+        },
+        {
+          "id": "5",
+          "first": "Nausea and Vomiting",
+          "second": "Especially in the morning or with changes in posture."
+        }
+      ],
+      "cures": [
+        {
+          "id": "1",
+          "first": "Medication",
+          "second": "Medication to manage symptoms or underlying causes."
+        },
+        {
+          "id": "2",
+          "first": "Lifestyle Changes",
+          "second": "Healthy lifestyle habits to promote overall well-being."
+        },
+        {
+          "id": "3",
+          "first": "Symptom Management",
+          "second": "Specific treatments to alleviate headaches, vision issues, etc."
+        },
+        {
+          "id": "4",
+          "first": "Regular Check-ups",
+          "second": "Monitoring for any changes or new symptoms."
+        },
+        {
+          "id": "5",
+          "first": "Supportive Care",
+          "second": "Supportive therapies such as counseling or physical therapy."
+        }
+      ],
+      "prevention": [
+        {
+          "id": "1",
+          "first": "Healthy Lifestyle",
+          "second": "Maintain a balanced diet and engage in regular exercise."
+        },
+        {
+          "id": "2",
+          "first": "Stress Management",
+          "second": "Practice stress-relief techniques."
+        },
+        {
+          "id": "3",
+          "first": "Regular Screenings",
+          "second": "Regular check-ups to detect any changes early."
+        },
+        {
+          "id": "4",
+          "first": "Educate Yourself",
+          "second": "Learn about symptoms and risk factors for various conditions."
+        },
+        {
+          "id": "5",
+          "first": "Seek Medical Advice",
+          "second": "Consult with healthcare providers for any concerns."
+        }
+      ]
+    },
+    "Glioma": {
+      "symptoms": [
+        {
+          "id": "1",
+          "first": "Headaches",
+          "second": "Persistent or severe headaches, often worsened in the morning."
+        },
+        {
+          "id": "2",
+          "first": "Seizures",
+          "second": "Sudden, uncontrolled movements or changes in consciousness."
+        },
+        {
+          "id": "3",
+          "first": "Nausea and Vomiting",
+          "second": "Especially in the morning or with changes in posture."
+        },
+        {
+          "id": "4",
+          "first": "Changes in Vision",
+          "second": "Blurry vision, double vision, or visual field deficits."
+        },
+        {
+          "id": "5",
+          "first": "Personality Changes",
+          "second": "Mood swings, behavioral changes, or cognitive decline."
+        }
+      ],
+      "cures": [
+        {
+          "id": "1",
+          "first": "Surgery",
+          "second": "Surgical removal of the tumor, if possible."
+        },
+        {
+          "id": "2",
+          "first": "Radiation Therapy",
+          "second": "High-dose radiation to target and shrink the tumor."
+        },
+        {
+          "id": "3",
+          "first": "Chemotherapy",
+          "second": "Systemic medications to kill cancer cells."
+        },
+        {
+          "id": "4",
+          "first": "Targeted Therapies",
+          "second": "Medications targeting specific molecular pathways."
+        },
+        {
+          "id": "5",
+          "first": "Supportive Care",
+          "second": "Palliative care for symptom management and comfort."
+        }
+      ],
+      "prevention": [
+        {
+          "id": "1",
+          "first": "Reduce Risk Factors",
+          "second": "Avoid exposure to radiation or carcinogenic substances."
+        },
+        {
+          "id": "2",
+          "first": "Healthy Lifestyle",
+          "second": "Maintain a balanced diet and exercise regularly."
+        },
+        {
+          "id": "3",
+          "first": "Regular Check-ups",
+          "second": "Monitoring for any neurological symptoms or changes."
+        },
+        {
+          "id": "4",
+          "first": "Manage Seizures",
+          "second": "Control seizures with appropriate medications."
+        },
+        {
+          "id": "5",
+          "first": "Supportive Care",
+          "second": "Psychosocial support for patients and caregivers."
+        }
+      ]
+    },
+    "Meningioma": {
+      "symptoms": [
+        {
+          "id": "1",
+          "first": "Headaches",
+          "second": "Persistent headaches, often worsened with changes in position."
+        },
+        {
+          "id": "2",
+          "first": "Seizures",
+          "second": "Sudden, uncontrolled movements or changes in consciousness."
+        },
+        {
+          "id": "3",
+          "first": "Vision Changes",
+          "second": "Blurred vision, double vision, or visual field deficits."
+        },
+        {
+          "id": "4",
+          "first": "Weakness or Numbness",
+          "second": "Weakness in limbs or numbness in certain body parts."
+        },
+        {
+          "id": "5",
+          "first": "Personality Changes",
+          "second": "Mood swings, behavioral changes, or cognitive decline."
+        }
+      ],
+      "cures": [
+        {
+          "id": "1",
+          "first": "Surgery",
+          "second": "Surgical removal of the tumor, if feasible."
+        },
+        {
+          "id": "2",
+          "first": "Radiation Therapy",
+          "second": "High-dose radiation to shrink or control the tumor."
+        },
+        {
+          "id": "3",
+          "first": "Chemotherapy",
+          "second": "Systemic medications to target cancer cells."
+        },
+        {
+          "id": "4",
+          "first": "Hormone Therapy",
+          "second": "If the tumor is hormone-sensitive."
+        },
+        {
+          "id": "5",
+          "first": "Supportive Care",
+          "second": "Palliative care for symptom relief and quality of life."
+        }
+      ],
+      "prevention": [
+        {
+          "id": "1",
+          "first": "Regular Check-ups",
+          "second": "Routine screenings and monitoring for any changes."
+        },
+        {
+          "id": "2",
+          "first": "Manage Risk Factors",
+          "second": "Control high blood pressure or other predisposing factors."
+        },
+        {
+          "id": "3",
+          "first": "Healthy Lifestyle",
+          "second": "Maintain a balanced diet and regular physical activity."
+        },
+        {
+          "id": "4",
+          "first": "Symptom Recognition",
+          "second": "Educate about signs and symptoms to detect early."
+        },
+        {
+          "id": "5",
+          "first": "Supportive Networks",
+          "second": "Join support groups for patients and caregivers."
+        }
+      ]
+    }
+  }
+  

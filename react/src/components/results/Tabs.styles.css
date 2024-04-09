@@ -1,0 +1,44 @@
+.heading-carousel{
+    display: flex;
+    justify-content: flex-start;
+  }
+
+#loader {
+    margin-top: 16%;
+    margin-left: 30%;
+	width: 8rem;
+	height: 8rem;
+	position: relative;
+	border-radius: 11px;
+	animation: spin 1s ease infinite;
+	/* &:hover {
+		background: #303030;
+	} */
+	&::before, &::after {
+		content: '';
+		width: 40%;
+		height: 40%;
+		display: block;
+		position: absolute;
+		border-radius: 9px;
+	}
+	&::before {
+		top: 3px;
+		left: 3px;
+		background: #36a095;
+	}
+	&::after {
+		bottom: 3px;
+		right: 3px;
+		background: #77d5cb;
+	}
+}
+
+@keyframes spin {
+	from {
+		transform: rotate(135deg);
+	}
+	to {
+		transform: rotate(495deg);
+	}
+}
