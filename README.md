@@ -10,6 +10,19 @@ CerebroScan is a cutting-edge website and Android app designed for brain tumor d
 3) 📰 Informative Blogs: Access a library of informative blogs related to brain tumors for enhanced understanding, available on both web and app.
 4) 📲 Mobile Accessibility: Seamlessly switch between web and app platforms for convenient access anytime, anywhere.
 
+## 📱 App Screenshots
+
+<div style="display: flex; justify-content: space-between;">
+  <img src="https://res.cloudinary.com/dxomldckp/image/upload/v1712667291/dermicheck-hackoverflow/l0i83v8bfvrilnfe4fp4.jpg" alt="App Screenshot" width="200">
+  <img src="https://res.cloudinary.com/dxomldckp/image/upload/v1712667291/dermicheck-hackoverflow/drg3nytmxxyupnqaxqsd.jpg" alt="App Screenshot" width="200">
+  <img src="https://res.cloudinary.com/dxomldckp/image/upload/v1712667291/dermicheck-hackoverflow/yej9czsckkmpkdtt5gmb.jpg" alt="App Screenshot" width="200">
+  <img src="https://res.cloudinary.com/dxomldckp/image/upload/v1712667290/dermicheck-hackoverflow/ceodxgebcnpumlf5xqnh.jpg" alt="App Screenshot" width="200">
+  <img src="https://res.cloudinary.com/dxomldckp/image/upload/v1712667290/dermicheck-hackoverflow/shmgf989815fyk7kb9i3.jpg" alt="App Screenshot" width="200">
+  <img src="https://res.cloudinary.com/dxomldckp/image/upload/v1712667290/dermicheck-hackoverflow/qksqxs1vlwr5hhuxeifa.jpg" alt="App Screenshot" width="200">
+  <img src="https://res.cloudinary.com/dxomldckp/image/upload/v1712667290/dermicheck-hackoverflow/wrsi2knjkep7kk5blzsq.jpg" alt="App Screenshot" width="200">
+  <img src="https://res.cloudinary.com/dxomldckp/image/upload/v1712667290/dermicheck-hackoverflow/hsudd71ap6el5bbx7e3d.jpg" alt="App Screenshot" width="200">
+</div>
+
 ## 📄 License
 
 This project is licensed under the MIT License. See the [license.txt](license.txt) file for details.
