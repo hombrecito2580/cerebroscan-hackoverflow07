@@ -23,6 +23,22 @@ CerebroScan utilizes cutting-edge AI technology to analyze MRI scans, enabling a
   <img src="https://res.cloudinary.com/dxomldckp/image/upload/v1712667290/dermicheck-hackoverflow/hsudd71ap6el5bbx7e3d.jpg" alt="App Screenshot" width="200">
 </div>
 
+## 💻 Website Screenshots
+
+<div style="display: flex; justify-content: space-between;">
+  <img src="https://res.cloudinary.com/dxomldckp/image/upload/v1712693938/dermicheck-hackoverflow/vozyyk8gl7olrkpeefc7.jpg" alt="Website Screenshot" width="400">
+  <img src="https://res.cloudinary.com/dxomldckp/image/upload/v1712693938/dermicheck-hackoverflow/ii0egwi2apmyapnue2yi.jpg" alt="Website Screenshot" width="400">
+  <img src="https://res.cloudinary.com/dxomldckp/image/upload/v1712693938/dermicheck-hackoverflow/gao5ndks7yrbz4xiuuuf.jpg" alt="Website Screenshot" width="400">
+  <img src="https://res.cloudinary.com/dxomldckp/image/upload/v1712693938/dermicheck-hackoverflow/qdc78gc419ahuoxfadk3.jpg" alt="Website Screenshot" width="400">
+</div>
+
+## 🔗 Important Links
+
+- [Website](https://cerebroscan.onrender.com/)
+- [APK Release](https://github.com/hombrecito2580/cerebroscan-hackoverflow07/releases/tag/v1.0.0)
+- [GitHub Repository](https://github.com/hombrecito2580/cerebroscan-hackoverflow07)
+- [Demo Video](https://youtu.be/4aur-w7-qFw)
+
 ## 📄 License
 
 This project is licensed under the MIT License. See the [license.txt](license.txt) file for details.
