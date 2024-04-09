@@ -25,7 +25,7 @@ class DiseaseDetailsManager(private val context: Context) {
         val diseaseDetails = jsonObject.optJSONObject(diseaseName) ?: return null
         val symptomsArray = diseaseDetails.optJSONArray("symptoms") ?: return null
         return (0 until symptomsArray.length()).map {
-            symptomsArray.getJSONObject(it).getString("second")
+            symptomsArray.getJSONObject(it).getString("first") + " - " + symptomsArray.getJSONObject(it).getString("second")
         }
     }
 
@@ -36,7 +36,7 @@ class DiseaseDetailsManager(private val context: Context) {
         val diseaseDetails = jsonObject.optJSONObject(diseaseName) ?: return null
         val curesArray = diseaseDetails.optJSONArray("cures") ?: return null
         return (0 until curesArray.length()).map {
-            curesArray.getJSONObject(it).getString("second")
+            curesArray.getJSONObject(it).getString("first") + " - " + curesArray.getJSONObject(it).getString("second")
         }
     }
 
