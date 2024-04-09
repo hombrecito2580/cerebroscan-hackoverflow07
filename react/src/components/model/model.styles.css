@@ -1,0 +1,35 @@
+.box-container:hover{
+    backdrop-filter: blur("100px");
+}
+
+.disease-display{
+    height: 60vh !important;
+    overflow-y: hidden !important;
+}
+
+@media (max-width : 991px){
+    .disease-display{
+        width:  93vw !important;
+        margin-left: 3% !important;
+    }
+}
+
+@media (max-width : 812px){
+    .container-model{
+        height: 100% !important;
+    }
+}
+
+
+.container-model{
+    height: 80vh;
+    border-radius: 10px;
+    display: flex;
+    flex-direction:row;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-container{
+    height: 100%;
+}

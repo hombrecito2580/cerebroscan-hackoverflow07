@@ -1,0 +1,304 @@
+{
+  "Normal": {
+    "symptoms": [
+      {
+        "id": "1",
+        "first": "It seems that your skin is all OK !!!",
+        "second": ""
+      },
+      {
+        "id": "2",
+        "first": "Its Good that your skin is healthy but do make regular visits to doctors !!!",
+        "second": ""
+      },
+      {
+        "id": "3",
+        "first": "You can consult with doctors on our website",
+        "second": ""
+      }
+    ],
+    "cures": [
+      {
+        "id": "1",
+        "first": "It seems that your skin is all OK !!!",
+        "second": ""
+      },
+      {
+        "id": "2",
+        "first": "Its Good that your skin is healthy but do make regular visits to doctors !!!",
+        "second": ""
+      },
+      {
+        "id": "3",
+        "first": "You can consult with doctors on our website",
+        "second": ""
+      }
+    ],
+    "prevention": [
+      {
+        "id": "1",
+        "first": "It seems that your skin is all OK !!!",
+        "second": ""
+      },
+      {
+        "id": "2",
+        "first": "Its Good that your skin is healthy but do make regular visits to doctors !!!",
+        "second": ""
+      },
+      {
+        "id": "3",
+        "first": "You can consult with doctors on our website",
+        "second": ""
+      }
+    ]
+  },
+  "Acne and Rosacea Photos": {
+    "symptoms": [
+      {
+        "id": "1",
+        "first": "Comedones (Blackheads and Whiteheads)",
+        "second": "Small, skin-colored bumps (whiteheads) or darkened bumps (blackheads) on the skin."
+      },
+      {
+        "id": "2",
+        "first": "Papules and Pustules",
+        "second": "Inflamed, red bumps (papules) or pus-filled bumps (pustules) on the skin."
+      },
+      {
+        "id": "3",
+        "first": "Nodules and Cysts",
+        "second": "Large, painful lumps beneath the surface of the skin."
+      },
+      {
+        "id": "4",
+        "first": "Oily Skin",
+        "second": "Excess production of sebum leading to shiny or greasy skin."
+      },
+      {
+        "id": "5",
+        "first": "Scarring",
+        "second": "Acne lesions may leave scars, especially if they are picked or squeezed."
+      }
+    ],
+    "cures": [
+      {
+        "id": "1",
+        "first": "Topical Treatments",
+        "second": "Over-the-counter creams with benzoyl peroxide or salicylic acid."
+      },
+      {
+        "id": "2",
+        "first": "Prescription Medications",
+        "second": "Antibiotics, retinoids, or hormonal treatments prescribed by a dermatologist."
+      },
+      {
+        "id": "3",
+        "first": "Procedures",
+        "second": "Chemical peels, laser therapy, or drainage and extraction of large cysts."
+      },
+      {
+        "id": "4",
+        "first": "Proper Skincare",
+        "second": "Gentle cleansing, avoiding harsh products, and using non-comedogenic moisturizers."
+      },
+      {
+        "id": "5",
+        "first": "Lifestyle Changes",
+        "second": "Managing stress, maintaining a healthy diet, and avoiding picking or squeezing pimples."
+      }
+    ],
+    "prevention": [
+      {
+        "id": "1",
+        "first": "Cleanse Regularly",
+        "second": "Use a mild cleanser to remove excess oil and debris."
+      },
+      {
+        "id": "2",
+        "first": "Avoid Touching Face",
+        "second": "Touching the face with dirty hands can introduce bacteria."
+      },
+      {
+        "id": "3",
+        "first": "Choose Non-Comedogenic Products",
+        "second": "Select skincare and makeup products labeled as non-comedogenic."
+      },
+      {
+        "id": "4",
+        "first": "Balanced Diet",
+        "second": "Consume a diet rich in fruits, vegetables, and whole grains."
+      },
+      {
+        "id": "5",
+        "first": "Manage Stress",
+        "second": "Stress reduction techniques, such as meditation or exercise, may help prevent flare-ups."
+      }
+    ]
+  },
+  "vitiligo": {
+    "symptoms": [
+      {
+        "id": "1",
+        "first": "Loss of Skin Color",
+        "second": "Irregular, depigmented patches on the skin."
+      },
+      {
+        "id": "2",
+        "first": "Premature Graying",
+        "second": "Hair in affected areas may turn prematurely white or gray."
+      },
+      {
+        "id": "3",
+        "first": "Symmetrical Patterns",
+        "second": "Often appears on both sides of the body."
+      },
+      {
+        "id": "4",
+        "first": "Change in Eye Color",
+        "second": "Loss of color in the iris (ocular or segmental vitiligo)."
+      },
+      {
+        "id": "5",
+        "first": "Sensitivity to Sunlight",
+        "second": "Skin in affected areas may be more sensitive to sunlight."
+      }
+    ],
+    "cures": [
+      {
+        "id": "1",
+        "first": "Topical Corticosteroids",
+        "second": "Steroid creams to reduce inflammation and depigmentation."
+      },
+      {
+        "id": "2",
+        "first": "Topical Calcineurin Inhibitors",
+        "second": "Suppress the immune response in affected areas."
+      },
+      {
+        "id": "3",
+        "first": "Phototherapy",
+        "second": "Exposure to UVB light to stimulate repigmentation."
+      },
+      {
+        "id": "4",
+        "first": "Micropigmentation or Tattoos",
+        "second": "Camouflage affected areas with pigmented tattoos."
+      },
+      {
+        "id": "5",
+        "first": "Depigmentation",
+        "second": "Lightening unaffected skin to match depigmented areas."
+      }
+    ],
+    "prevention": [
+      {
+        "id": "1",
+        "first": "Sun Protection",
+        "second": "Use sunscreen to protect depigmented areas from sunburn."
+      },
+      {
+        "id": "2",
+        "first": "Cosmetic Camouflage",
+        "second": "Use makeup or concealing agents to cover affected areas."
+      },
+      {
+        "id": "3",
+        "first": "Stress Management",
+        "second": "Techniques like meditation to manage emotional stress."
+      },
+      {
+        "id": "4",
+        "first": "Regular Monitoring",
+        "second": "Monitor for new depigmented areas and seek early treatment."
+      },
+      {
+        "id": "5",
+        "first": "Healthy Diet",
+        "second": "Ensure a well-balanced diet, including sources of vitamin B12."
+      }
+    ]
+  },
+  "Tinea Ringworm Candidiasis and other Fungal Infections": {
+    "symptoms": [
+      {
+        "id": "1",
+        "first": "Circular Rash",
+        "second": "Red, raised, and itchy circular patches (ringworm)."
+      },
+      {
+        "id": "2",
+        "first": "Scaling and Peeling",
+        "second": "Skin may appear scaly with peeling edges."
+      },
+      {
+        "id": "3",
+        "first": "Redness and Swelling",
+        "second": "Inflammation in affected areas."
+      },
+      {
+        "id": "4",
+        "first": "Discharge",
+        "second": "Candidiasis may cause white discharge in affected areas."
+      },
+      {
+        "id": "5",
+        "first": "Itching and Burning",
+        "second": "Common symptoms for both conditions."
+      }
+    ],
+    "cures": [
+      {
+        "id": "1",
+        "first": "Antifungal Medications",
+        "second": "Topical or oral antifungal medications."
+      },
+      {
+        "id": "2",
+        "first": "Topical Steroids",
+        "second": "For reducing inflammation and itching."
+      },
+      {
+        "id": "3",
+        "first": "Antifungal Creams",
+        "second": "Over-the-counter or prescription creams."
+      },
+      {
+        "id": "4",
+        "first": "Oral Medications",
+        "second": "In severe cases, oral antifungal medications."
+      },
+      {
+        "id": "5",
+        "first": "Hygiene Practices",
+        "second": "Keep affected areas clean and dry."
+      }
+    ],
+    "prevention": [
+      {
+        "id": "1",
+        "first": "Good Hygiene",
+        "second": "Regular bathing and keeping skin dry."
+      },
+      {
+        "id": "2",
+        "first": "Avoid Sharing Personal Items",
+        "second": "Towels, combs, or clothing."
+      },
+      {
+        "id": "3",
+        "first": "Wear Breathable Fabrics",
+        "second": "Choose loose, breathable clothing."
+      },
+      {
+        "id": "4",
+        "first": "Prompt Treatment",
+        "second": "Treat fungal infections promptly to prevent spread."
+      },
+      {
+        "id": "5",
+        "first": "Regular Skin Checks",
+        "second": "Monitor for any signs of recurrence."
+      }
+    ]
+  }
+}

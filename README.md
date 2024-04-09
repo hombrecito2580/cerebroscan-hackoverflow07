@@ -1,7 +1,7 @@
 # CerebroScan
 <img src="https://res.cloudinary.com/dxomldckp/image/upload/v1712608116/dermicheck-hackoverflow/t5mkvsh5skvwon2ohckg.png" alt="CerebroScan Logo" width="200">
 
-CerebroScan is a cutting-edge website and Android app designed for brain tumor detection using advanced image classification models. It offers essential information on treatments, precautions, and a curated selection of insightful blogs, providing users with comprehensive resources to understand and manage this critical health concern.
+CerebroScan utilizes cutting-edge AI technology to analyze MRI scans, enabling accurate diagnosis of brain tumors. Beyond diagnosis, it offers users detailed information on symptoms and precautions associated with various conditions, enhancing their understanding and enabling proactive healthcare management. Additionally, CerebroScan provides access to curated blogs discussing the latest advancements in medical science related to brain health, ensuring users stay informed about the forefront of research and treatment options.
 
 ## 🚀 Features
 
